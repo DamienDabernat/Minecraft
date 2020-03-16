@@ -36,5 +36,6 @@
 ![](https://i.imgur.com/ooVMWpB.png)
 
 > On débute avec seulement un lit et 8 cobblestones !
+
 > Pas touches ! Les cobblestones servirons à faire un four !
 > ![](https://i.imgur.com/ckXuASk.png)
