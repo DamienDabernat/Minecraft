@@ -26,6 +26,12 @@
 > Et voila 🥳
 ![](https://i.imgur.com/TNgNHI2.png)
 
+## Le But
+
+L'objectif et sortir le plus vite possible du Nether.
+
+Puis ensuite après avoir établi un camp dans l'overworld, on partira à la chasse du dragon ! 🐲
+
 ## Pour survivre
 
 ⚠️ NE JAMAIS DORMIR DANS UN LIT DANS LE NETHER
