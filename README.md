@@ -35,6 +35,7 @@
 > Pour set un spawnpoint il suffit de monter sur le lit
 ![](https://i.imgur.com/ooVMWpB.png)
 
+
 On débute avec seulement un lit et 8 cobblestones !
 
 > Attention ! Les cobblestones servirons à faire un four !
