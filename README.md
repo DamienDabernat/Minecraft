@@ -1,5 +1,7 @@
 # CovidCraft
 
+<img src='https://panel.omgserv.com/banner/275081' />
+
 ## Installation
 
 > Allez dans l'onglet `Configuration`
@@ -29,6 +31,7 @@
 ## Pour survivre
 
 ⚠️ NE JAMAIS DORMIR DANS UN LIT DANS LE NETHER
+
 ☠️ SOUS PEINE DE MORT PIRE QUE LE COVID-19
 
 > Pour set un spawnpoint il suffit de monter sur le lit
