@@ -2,7 +2,7 @@
 
 ## Discord
 
-[Lien salon Discord se trouve ici !](https://discord.gg/m4jcsUF)
+[Lien du salon Discord ici !](https://discord.gg/m4jcsUF)
 
 ## Installation
 
