@@ -1,5 +1,9 @@
 <img src='https://panel.omgserv.com/banner/275081' />
 
+## Discord
+
+[Lien salon Discord se trouve ici !](https://discord.gg/m4jcsUF)
+
 ## Installation
 
 > Allez dans l'onglet `Configuration`
