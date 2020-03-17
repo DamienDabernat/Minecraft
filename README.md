@@ -50,6 +50,7 @@ On débute avec seulement un lit et 8 cobblestones !
 
 ## Autres
 
+Y a pas besoins mais au cas ou : 
 - [Le resource pack se trouve ici](https://faithful.team/news/2020-03-12-faithful-1-16-s5/)
 - [Le data pack](https://www.planetminecraft.com/data-pack/dimension-respawn-incl-beds-in-the-nether-or-end/)
 - [La page wiki du Piglin](https://minecraft.gamepedia.com/Piglin)
