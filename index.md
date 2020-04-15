@@ -1,0 +1,158 @@
+<!DOCTYPE HTML>
+<html lang="fr">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+  <!-- fontawesmone -->
+  <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+    integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+  <link href="https://fonts.googleapis.com/css?family=Ubuntu+Mono&display=swap" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Quicksand" />
+
+  <title>😷 Confinement Simulator 2020 - Covid-19 Edition</title>
+
+  <style>
+    body {
+      font-family: 'Quicksand', sans-serif !important;
+    }
+
+    #progress
+    {
+      font-family: 'Ubuntu Mono', monospace;
+    }
+
+    .dotted-underline-help
+    {
+      text-decoration: underline;
+      text-decoration-style: dotted;
+      cursor: help;
+    }
+
+    @media(max-width: 768px){
+      #progress{
+        font-size: 4rem;font-size: 12vw;
+      }
+    }
+  </style>
+</head>
+
+<body class="bg-light">
+
+  <div class="container pt-5">
+
+    <h1 class="text-center  display-5">&#8987; Progression du confinement </h1>
+    <h2 class="my-0 text-center display-4"><strong id="daysTodo"></strong> <strong>jours</strong> restants</h2>
+
+    <div class="jumbotron mt-5 bg-white border border-primary">
+      <!-- Percentage -->
+      <span id="progress" class="display-1 my-5 text-center"></span>
+
+      <!-- progress bar -->
+      <div class="progress" style="height: 3em">
+        <div id="progress-bar" class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuemin="0"
+          aria-valuemax="100" aria-valuenow="0" style="width: 0%"></div>
+      </div>
+      <p class="my-0 text-right" style="font-size:130%"><span class="dotted-underline-help" data-toggle="tooltip" data-placement="bottom" title="Période de confinement du 17/03 au 11/05">(déjà <span id="daysDone"></span> jours confinés sur un total de <span id="daysTotal"></span>)</span></p>
+
+    </div>
+
+  </div>
+
+  <!-- footer -->
+  <footer class="fixed-bottom py-3 bg-secondary">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-6 text-white">
+          <p>#RestezChezVous</p>
+        </div>
+        <div class="col-6 text-right">
+          <a target="_blank" href="https://github.com/natinusala/progression-confinement-france"><i class="fa fa-github text-dark fa-2x"></i></a>
+          <a target="_blank" href="https://twitter.com/natinusala/"><i class="fa fa-twitter text-dark fa-2x"></i></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Depuis https://gist.github.com/dsample/f847e2cf598fd973240d -->
+
+  <script type="text/javascript">
+    function roundNumber(num, dec) {
+      return Math.round(num * Math.pow(10, dec)) / Math.pow(10, dec);
+    }
+
+    function getDaysRemaining(endtime) {
+      var t = Date.parse(endtime) - Date.parse(new Date());
+      var days = t / (1000 * 60 * 60 * 24);
+      return roundNumber(days, 4);
+    }
+
+    function getTimeSince(starttime) {
+      var t = Date.parse(new Date()) - Date.parse(starttime);
+      var days = t / (1000 * 60 * 60 * 24);
+      var weeks = days / 7;
+      var daysOfWeek = days;
+      return {
+        'weeks': roundNumber(weeks, 4),
+        'days': roundNumber(daysOfWeek, 4)
+      };
+    }
+
+    function getPercentage(starttime, endtime) {
+      startDate = Date.parse(starttime);
+      endDate = Date.parse(endtime);
+
+      diff = endDate - startDate;
+      totalDays = diff / (1000 * 60 * 60 * 24);
+
+      var progressDiff = Date.parse(new Date()) - Date.parse(starttime);
+      var progressDays = progressDiff / (1000 * 60 * 60 * 24);
+
+      decimal = progressDays / totalDays;
+      precision = 1000000;
+
+      percentage = Math.floor(decimal * 100 * precision) / precision;
+      return percentage;
+    }
+
+    function refresh()
+    {
+      var startDate = '2020-03-17';
+      var endDate = '2020-05-11';
+
+      var timeGone = getTimeSince(startDate);
+      var daysDone = timeGone['days'];
+      var daysLeft = getDaysRemaining(endDate);
+      var total = daysDone + daysLeft;
+      var percentComplete = getPercentage(startDate, endDate);
+
+      document.getElementById('progress-bar').style.width = percentComplete.toString() + '%';
+      document.getElementById('progress-bar').setAttribute("aria-valuenow", percentComplete.toString());
+      document.getElementById('progress').textContent = percentComplete.toString() + "%";
+
+      document.getElementById('daysDone').textContent = Math.floor(daysDone).toString();
+      document.getElementById('daysTodo').textContent = Math.floor(daysLeft).toString();
+      document.getElementById('daysTotal').textContent = Math.floor(total).toString();
+    }
+
+    refresh();
+
+    setInterval(refresh, 1000);
+
+  </script>
+
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js" integrity="sha384-6khuMg9gaYr5AxOqhkVIODVIvm9ynTT5J4V1cfthmT+emCG6yVmEZsRHdxlotUnm" crossorigin="anonymous"></script>
+  <script>
+    $('.dotted-underline-help').tooltip();
+  </script>
+</body>
+
+</html>
